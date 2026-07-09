@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>كبسولة | منصة الكورسات</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800;900&family=Tajawal:wght@400;500;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="bg-grid"></div>
+
+<header>
+  <nav>
+    <div class="logo">كبسولة<span class="dot">.</span></div>
+    <div class="nav-links">
+      <a href="#courses">الكورسات</a>
+      <a href="#how">إزاي تشتغل المنصة</a>
+    </div>
+    <div id="navAuthArea"></div>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="eyebrow">🎓 منصة مذاكرة أونلاين</div>
+      <h1>ذاكر مادتك <span>خطوة بخطوة</span> مع أحسن مدرّسين</h1>
+      <p>كل المواد، كل المراحل، في مكان واحد. اشترك في الكورس، افتحه بفودافون كاش، وابدأ تذاكر من موبايلك في أي وقت.</p>
+      <div class="hero-ctas">
+        <a href="#courses" class="btn btn-amber">تصفح الكورسات ↓</a>
+        <a href="javascript:void(0)" onclick="openModal('registerModal')" class="btn btn-ghost">اعمل حساب مجاني</a>
+      </div>
+      <div class="pills">
+        <div class="pill">📐 رياضيات</div>
+        <div class="pill">⚗️ كيمياء</div>
+        <div class="pill">🧬 أحياء</div>
+        <div class="pill">⚡ فيزياء</div>
+        <div class="pill">📖 لغة عربية</div>
+      </div>
+    </div>
+    <div class="board">
+      <div class="board-row"><div class="subj"><span class="subj-dot" style="background:#F2A93B"></span>فيزياء - تالتة ثانوي</div><div class="time">الأحد 5:00م</div></div>
+      <div class="board-row"><div class="subj"><span class="subj-dot" style="background:#3FB8AF"></span>كيمياء - تالتة ثانوي</div><div class="time">الاتنين 6:30م</div></div>
+      <div class="board-row"><div class="subj"><span class="subj-dot" style="background:#E85C5C"></span>أحياء - تانية ثانوي</div><div class="time">الثلاثاء 4:00م</div></div>
+      <div class="board-row"><div class="subj"><span class="subj-dot" style="background:#F2A93B"></span>رياضيات - أولى ثانوي</div><div class="time">الأربعاء 7:00م</div></div>
+      <div class="board-row"><div class="subj"><span class="subj-dot" style="background:#3FB8AF"></span>لغة عربية - تالتة ثانوي</div><div class="time">الخميس 5:30م</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="courses">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <h2>الكورسات المتاحة</h2>
+        <p>اختار مادتك وابدأ حالًا</p>
+      </div>
+    </div>
+    <div class="filters" id="gradeFilters"></div>
+    <div class="grid" id="coursesGrid"></div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <h2>إزاي تشتغل المنصة</h2>
+        <p>3 خطوات وتبدأ تذاكر</p>
+      </div>
+    </div>
+    <div class="grid" style="grid-template-columns:repeat(3,1fr)">
+      <div class="card" style="cursor:default">
+        <div class="card-body">
+          <div class="card-subject">الخطوة 1</div>
+          <div class="card-title">اعمل حساب</div>
+          <div class="card-teacher">بالاسم ورقم الموبايل بس، من غير أي تعقيد.</div>
+        </div>
+      </div>
+      <div class="card" style="cursor:default">
+        <div class="card-body">
+          <div class="card-subject">الخطوة 2</div>
+          <div class="card-title">حوّل بفودافون كاش</div>
+          <div class="card-teacher">حول قيمة الكورس وابعت رقم العملية من جوه المنصة.</div>
+        </div>
+      </div>
+      <div class="card" style="cursor:default">
+        <div class="card-body">
+          <div class="card-subject">الخطوة 3</div>
+          <div class="card-title">استنى التفعيل وذاكر</div>
+          <div class="card-teacher">هيتفعل حسابك خلال ساعات وتقدر تتفرج على الكورس كامل.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="muted">© كبسولة — منصة مذاكرة أونلاين</div>
+  <a href="javascript:void(0)" class="admin-link" onclick="openModal('adminLoginModal')">لوحة التحكم</a>
+</footer>
+
+<!-- REGISTER MODAL -->
+<div class="overlay" id="registerModal">
+  <div class="modal">
+    <button class="close-x" onclick="closeModal('registerModal')">✕</button>
+    <h3>اعمل حسابك</h3>
+    <div class="sub">دقيقة واحدة وتبقى جاهز تذاكر</div>
+    <div class="form-msg" id="regMsg"></div>
+    <form onsubmit="return handleRegister(event)">
+      <div class="field"><label>الاسم</label><input type="text" id="regName" required></div>
+      <div class="field"><label>رقم الموبايل</label><input type="tel" class="mono" id="regPhone" required pattern="01[0-9]{9}" placeholder="01xxxxxxxxx"></div>
+      <div class="field"><label>الصف الدراسي</label>
+        <select id="regGrade" required>
+          <option value="" disabled selected>اختار الصف</option>
+          <option>أولى ثانوي</option>
+          <option>تانية ثانوي</option>
+          <option>تالتة ثانوي</option>
+        </select>
+      </div>
+      <div class="field"><label>رقم موبايل ولي الأمر</label><input type="tel" class="mono" id="regParentPhone" required pattern="01[0-9]{9}" placeholder="01xxxxxxxxx"></div>
+      <div class="field"><label>كلمة السر</label><input type="password" id="regPass" required minlength="4"></div>
+      <button class="btn btn-amber" style="width:100%; justify-content:center;">إنشاء الحساب</button>
+    </form>
+    <div class="switch-link">عندك حساب؟ <a href="javascript:void(0)" onclick="switchModal('registerModal','loginModal')">سجل دخول</a></div>
+  </div>
+</div>
+
+<!-- LOGIN MODAL -->
+<div class="overlay" id="loginModal">
+  <div class="modal">
+    <button class="close-x" onclick="closeModal('loginModal')">✕</button>
+    <h3>تسجيل الدخول</h3>
+    <div class="sub">أهلاً بيك تاني</div>
+    <div class="form-msg" id="loginMsg"></div>
+    <form onsubmit="return handleLogin(event)">
+      <div class="field"><label>رقم الموبايل</label><input type="tel" class="mono" id="loginPhone" required></div>
+      <div class="field"><label>كلمة السر</label><input type="password" id="loginPass" required></div>
+      <button class="btn btn-amber" style="width:100%; justify-content:center;">دخول</button>
+    </form>
+    <div class="switch-link">لسه معملتش حساب؟ <a href="javascript:void(0)" onclick="switchModal('loginModal','registerModal')">اعمل حساب</a></div>
+  </div>
+</div>
+
+<!-- COURSE MODAL -->
+<div class="overlay" id="courseModal">
+  <div class="modal wide">
+    <button class="close-x" onclick="closeModal('courseModal')">✕</button>
+    <div id="courseModalBody"></div>
+  </div>
+</div>
+
+<!-- ADMIN LOGIN -->
+<div class="overlay" id="adminLoginModal">
+  <div class="modal">
+    <button class="close-x" onclick="closeModal('adminLoginModal')">✕</button>
+    <h3>دخول الأدمن</h3>
+    <div class="sub">للمشرفين بس</div>
+    <div class="form-msg" id="adminLoginMsg"></div>
+    <form onsubmit="return handleAdminLogin(event)">
+      <div class="field"><label>باسورد الأدمن</label><input type="password" id="adminPass" required></div>
+      <button class="btn btn-amber" style="width:100%; justify-content:center;">دخول</button>
+    </form>
+  </div>
+</div>
+
+<!-- ADMIN PANEL -->
+<div class="overlay" id="adminPanelModal">
+  <div class="modal wide">
+    <button class="close-x" onclick="closeModal('adminPanelModal')">✕</button>
+    <h3>لوحة التحكم</h3>
+    <div class="sub">إدارة طلبات الدفع والكورسات</div>
+    <div class="admin-tabs">
+      <div class="admin-tab active" id="tabRequests" onclick="showAdminTab('requests')">طلبات الدفع</div>
+      <div class="admin-tab" id="tabMembers" onclick="showAdminTab('members')">الأعضاء</div>
+      <div class="admin-tab" id="tabCourses" onclick="showAdminTab('courses')">الكورسات</div>
+      <div class="admin-tab" id="tabAddCourse" onclick="showAdminTab('addCourse')">+ إضافة كورس</div>
+      <div class="admin-tab" id="tabSettings" onclick="showAdminTab('settings')">الإعدادات</div>
+    </div>
+    <div id="adminContent"></div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
